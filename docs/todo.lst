@@ -1,0 +1,26 @@
+- large files (win32)
+- remove call-delay, start outbound session immediately after finish previous one if max-clients limit reached
+- on_incoming() perl hook
+- rexx hooks
+- do not kill attaches (save and ignore) if drive missing (unmounted)
+- no incoming calls under BeOS (file locking problem)
+- no syslog support under BeOS
+- charsets support, unicode
+- aftersession
+- "empty queue" flag (exit if "-p")
+- exit immediately after session in "-p" mode
+- force rescan by signal (SIGUSR1)
+- check netname (not realname) on "exec" and "flag"
+- binkd/dos: waterloo tcpip
+- single-thread version
+- put session time in "done" line
+- send-hold-on-outgoing option
+- turn on NR-mode if exists incomplete files from this link (optional?)
+- xBSO
+- TheBrake long style outbound
+- go to tray under windows
+- no-compression node switch
+- restart perl on reload config (should we call on_start() hook this case?)
+? ssl
+? true multibatch mode
+? hide attaches and remove bsy during a session

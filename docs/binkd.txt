@@ -1,0 +1,92 @@
+BINKD(8)                                                              BINKD(8)
+
+
+
+NAME
+       binkd - transfer files between two Fidonet systems over TCP/IP
+
+SYNOPSIS
+       binkd [-CcDipqrsvdmh] [ -P node ] config-file
+
+DESCRIPTION
+       Binkd is a Fidonet mailer designed to operate via TCP/IP networks. As a
+       FTN-compatible internet daemon, it makes possible efficient utilization
+       of  TCP/IP protocol suite as a transport layer in FTN-based (Fido Tech-
+       nology Network) networks.
+
+       Binkd expects your spool for Fido-like networks to  be  in  BSO  ("Bink
+       style outbound") or optionaly ASO ("Amiga style outbound") format.  BSO
+       is also used by ifmail and BinkleyTerm mailers.
+
+
+OPTIONS
+       -C     Binkd running with this option  will  reread  the  configuration
+              file  if  it is changed. The modification time of the configura-
+              tion file is checked every 60 seconds and on every incoming  and
+              outgoing connection.
+
+       -c     Start client only. Normally Binkd starts both server and client.
+
+       -D     Run Binkd as a daemon (cannot be used for client-only mode).
+
+       -i     Run Binkd from inetd.
+
+       -P     Poll a node.  An empty *.ilo file in the outbound will  be  cre-
+              ated,  which  will force Binkd to connect to and to receive mail
+              from the node ( Binkd will also add "Node node *  -"  record  to
+              the  table-of-nodes  in Binkd 's memory if there is no entry for
+              the node in the configuration file).
+
+       -p     Start client manager, process polls, quit if the queue seems  to
+              be empty after the next rescan. Implies -c.
+
+       -q     Quiet  mode. Turns off printq, conlog and percents statements of
+              configuration.
+
+       -r     Disable crypt traffic.
+
+       -s     Start server only. Normally Binkd starts both server and client.
+
+       -v     Be verbose.  Binkd -v will dump binkd's version and quit.
+
+       -vv    Dump version and compiled-in options.
+
+       -d     Dump parsed config and exit.
+
+       -m     Disable CRAM-MD5 authorization. Implies -r.
+
+       -h     Print help message.
+
+
+SIGNALS
+       SIGHUP Causes Binkd to reload it's config.
+
+
+ENVIROMENT
+       BINKD_LOG
+              log  file name.  Binkd uses this enviroment variable if the log-
+              file token is not defined in the config file
+
+
+SEE ALSO
+       inetd(8)
+
+       Binkd FAQ, Binkd User Guide, Binkd homepage  http://binkd.grumbler.org,
+       http://www.corbina.net/~maloff/binkd/
+       ftp://happy.kiev.ua/pub/fidosoft/mailer/binkd/      ftp://fido.thunder-
+       dome.ws/pub/mirror/binkd/ ftp://ftp.lucky.net/pub/fido/binkd/
+
+
+AUTHORS
+       Dima Maloff <maloff@tts.magadan.su> and others.
+
+       This  manual  page  is based on "Binkd User Guide" by nsoveiko@doe.car-
+       leton.ca (Nick Soveiko)
+
+
+REPORTING BUGS
+       Report bugs to <binkd-bugs@happy.kiev.ua>
+
+
+
+                                  4 Jun 2009                          BINKD(8)
